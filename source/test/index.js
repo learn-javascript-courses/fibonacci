@@ -119,17 +119,17 @@ test('capped memoized fibonacci implementation', nest => {
   });
 
   nest.test('...capped n argument', assert => {
-    const msg = 'should throw for n > 80';
+    const msg = 'should throw for n > 79';
     assert.throws(() => cappedMemofib(90).next(), Error, msg);
     assert.end();
   });
 
   nest.test('...capped infinite series', assert => {
-    const msg = 'should stop at n = 80';
+    const msg = 'should stop at n = 79';
 
     const [...series] = cappedMemofib();
     const actual = series.length;
-    const expected = 80;
+    const expected = 79;
 
     assert.equal(actual, expected, msg);
     assert.end();
@@ -150,17 +150,17 @@ test('capped fibonacci lookup', nest => {
   });
 
   nest.test('...capped n argument', assert => {
-    const msg = 'should throw for n > 80';
+    const msg = 'should throw for n > 79';
     assert.throws(() => lookup(90).next(), Error, msg);
     assert.end();
   });
 
   nest.test('...capped infinite series', assert => {
-    const msg = 'should stop at n = 80';
+    const msg = 'should stop at n = 79';
 
     const [...series] = lookup();
     const actual = series.length;
-    const expected = 80;
+    const expected = 79;
 
     assert.equal(actual, expected, msg);
     assert.end();
