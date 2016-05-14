@@ -9,15 +9,15 @@ const lookup = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610,
 17167680177565, 27777890035288, 44945570212853, 72723460248141,
 117669030460994, 190392490709135, 308061521170129, 498454011879264,
 806515533049393, 1304969544928657, 2111485077978050, 3416454622906707,
-5527939700884757, 8944394323791464, 14472334024676220];
+5527939700884757, 8944394323791464];
 
 function* fib (n) {
-  if (n > 80) throw new Error('Results are not available for n > 80.');
+  if (n > 79) throw new Error('Results are not available for n > 79.');
   const isInfinite = n === undefined;
   let i = 0;
 
   while (isInfinite || n--) {
-    if (i === 80) return;
+    if (i === 79) return;
     yield lookup[i];
     i++;
   }

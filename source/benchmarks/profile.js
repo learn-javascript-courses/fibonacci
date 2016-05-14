@@ -7,7 +7,7 @@ import range from 'test/helpers/range';
 const nsTime = (hrtime) => hrtime[0] * 1e9 + hrtime[1];
 
 const profile = () => {
-  const numbers = 80;
+  const numbers = 79;
   const msg = `Profile with ${ numbers } numbers`;
 
   const fibGen = iterativefib();
