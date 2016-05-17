@@ -1,19 +1,22 @@
-// Fast and correct.
+const memo = [0, 1];
 
-const memo = [];
+const fib = (n) => {
+  if (memo[n] !== undefined) return memo[n];
 
-function* fib (n) {
-  if (memo[n]) yield memo[n];
-
-  const isInfinite = n === undefined;
   let current = 0;
   let next = 1;
 
-  while (isInfinite || n--) {
-    memo[n] = current;
-    yield current;
+  for (let i = 0; i < n; i++) {
+    memo[i] = current;
     [current, next] = [next, current + next];
   }
+
+  return current;
+};
+
+function* gen (n) {
+  fib(n);
+  yield* memo.slice(0, n + 1);
 }
 
-export default fib;
+export default gen;
