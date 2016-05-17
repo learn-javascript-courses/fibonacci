@@ -11,16 +11,9 @@ const lookup = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610,
 806515533049393, 1304969544928657, 2111485077978050, 3416454622906707,
 5527939700884757, 8944394323791464];
 
-function* fib (n) {
-  if (n > 79) throw new Error('Results are not available for n > 79.');
-  const isInfinite = n === undefined;
-  let i = 0;
-
-  while (isInfinite || n--) {
-    if (i === 79) return;
-    yield lookup[i];
-    i++;
-  }
+function* fib (n = 79) {
+  if (n > 79) throw new Error('Values are not available for n > 79.');
+  yield* lookup.slice(0, n);
 }
 
 export default fib;

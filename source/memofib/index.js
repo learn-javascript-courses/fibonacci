@@ -14,7 +14,7 @@ const fib = (n) => {
   return current;
 };
 
-function* gen (n) {
+function* gen (n = 79) {
   fib(n);
   yield* memo.slice(0, n + 1);
 }
