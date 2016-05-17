@@ -56,15 +56,32 @@ test('iterative fibonacci infinite', assert => {
   assert.end();
 });
 
-test('memoized fibonacci implementation', assert => {
-  const msg = 'should produce the fibonacci sequence';
+test('memoized fibonacci implementation', nest => {
 
-  const [...actual] = memofib(8);
+  nest.test('...first pass', assert => {
+    const msg = 'should produce the fibonacci sequence';
 
-  const expected = [0, 1, 1, 2, 3, 5, 8, 13];
+    const [...actual] = memofib(8);
 
-  assert.same(actual, expected, msg);
-  assert.end();
+    const expected = [0, 1, 1, 2, 3, 5, 8, 13];
+
+    assert.same(actual, expected, msg);
+    assert.end();
+  });
+
+  nest.test('...2nd pass', assert => {
+    const msg = 'should produce the correct sequence twice';
+
+    const [...m5] = memofib(5);
+    const [...actual] = memofib(3);
+
+    const expected = [0, 1, 1, 2];
+    const m5Expected = [0, 1, 1, 2, 3, 5];
+
+    assert.same(actual, expected, msg);
+    assert.same(m5, m5Expected, msg);
+    assert.end();
+  });
 });
 
 test('formula fibonacci implementation', assert => {
