@@ -15,8 +15,9 @@ const fib = (n) => {
 };
 
 function* gen (n = 79) {
+  if (n > 79) throw new Error('Values are not available for n > 79.');
   fib(n);
-  yield* memo.slice(0, n + 1);
+  yield* memo.slice(0, n);
 }
 
 export default gen;
