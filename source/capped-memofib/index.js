@@ -1,7 +1,7 @@
 const memo = [];
 
 function* fib (n) {
-  if (n > 79) throw new Error('Accurate results are not available for n > 79.');
+  if (n > 79) throw new Error('Accurate values are not available for n > 79.');
   if (memo[n]) yield memo[n];
 
   const isInfinite = n === undefined;
